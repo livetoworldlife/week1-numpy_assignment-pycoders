@@ -15,7 +15,7 @@ while whlcont:
     b = np.random.random((x, x))
     counter_genel += 1
     # to check if all diaganal items provides the condition
-    sub = a-b
+    sub = np.subtract(a, b)
     counter = 0
     for i in range(x):
         if -0.1 < sub[i, i] and sub[i, i] < 0.1:
