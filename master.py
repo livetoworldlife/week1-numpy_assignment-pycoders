@@ -1,4 +1,3 @@
-
 import numpy as np
 import time
 
@@ -6,7 +5,7 @@ import time
 start_time = time.time()
 
 # Matrix X * X column and rows
-x = 5
+x = 10
 # for find how many times turns while loops
 counter_genel = 0
 whlcont = True
@@ -18,17 +17,45 @@ while whlcont:
     # to check if all diaganal items provides the condition
     counter = 0
     for i in range(x):
-        for j in range(x):
-            if i == j:
-                sub = np.subtract(a, b)
-                if -0.1 <= sub[i, j] and sub[i, j] >= 0.1:
-                    counter += 1
-                    if counter == x:
-                        print(sub)
-                        print("\nHow many times turn :", counter_genel)
-                        end_time = time.time()
-                        current_time = str(end_time-start_time)
-                        print("\nFound in {:.4f} seconds".format(
-                            float(current_time)))
+        sub = np.subtract(a, b)
+        if -0.1 < sub[i, i] and sub[i, i] > 0.1:
+            counter += 1
+            if counter == x:
+                print(sub)
+                print("\nHow many times turn :", counter_genel)
+                end_time = time.time()
+                current_time = str(end_time-start_time)
+                print("\nFound in {:.4f} seconds".format(
+                    float(current_time)))
 
-                        whlcont = False
+                whlcont = False
+                
+                
+"""
+RESULT----
+
+[[ 0.29524985 -0.67525213  0.10678413 -0.5027382  -0.58986732 -0.4128528
+   0.15328619 -0.25945254 -0.26860369 -0.12968854]
+ [-0.52811601  0.74675407 -0.25176409 -0.5196642  -0.4161324   0.44760492
+   0.67441244 -0.09878346  0.8149736   0.26490951]
+ [-0.02009865 -0.29711491  0.49229361 -0.18753051 -0.00294054  0.09646331
+   0.52099363  0.01804464 -0.24776867  0.72451045]
+ [-0.3034965  -0.78412658 -0.65623594  0.37081111 -0.17723159 -0.2288909
+  -0.07208671  0.03177517 -0.47011949 -0.72334249]
+ [-0.38961911 -0.32426299 -0.15085139  0.37285872  0.26517628 -0.31431181
+  -0.56248097 -0.83274459 -0.99463907  0.09358302]
+ [ 0.22200102  0.54973092  0.03671406 -0.51969001  0.85379355  0.27746158
+   0.11224901  0.03323289 -0.81874185 -0.20266299]
+ [-0.14214332 -0.43318554 -0.55268199 -0.57586398 -0.53958342 -0.15373824
+   0.18884939 -0.24366477  0.07963442  0.54671561]
+ [-0.32509972 -0.05711107  0.37097821 -0.50153971  0.63598552  0.21943986
+   0.63519103  0.80636272  0.14622606  0.19960887]
+ [-0.01386552  0.56833101 -0.70821179  0.37311352 -0.12007485  0.76135099
+   0.22948775  0.03783884  0.21722042  0.55429667]
+ [ 0.53362363  0.11189357  0.01793454 -0.20969118  0.17763967  0.50232665
+  -0.08275231  0.02713338 -0.15528033  0.3044947 ]]
+
+How many times turn : 13337
+
+Found in 0.3257 seconds
+"""                
